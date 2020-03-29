@@ -4,8 +4,8 @@ import axios from 'axios';
 
 export const SearchForm = () => {
     const [search, setSearch] = useState('');
-    const [sort, setSort] = useState('');
-    const [limit, setLimit] = useState('');
+    const [sort, setSort] = useState('relevance');
+    const [limit, setLimit] = useState(5);
     const { setResults } = useContext(GlobalContext);
 
     const handleForm = async (e) => {
@@ -14,19 +14,22 @@ export const SearchForm = () => {
         console.log(`Search: ${search}`);
         console.log(`Sort: ${sort}`);
         console.log(`Limit: ${limit}`);
-
-        axios({
-            method: 'GET',
-            url: `http://www.reddit.com/search.json?q=${search
-                .split(' ')
-                .join('+')}&sort=${sort}&limit=${limit}`
-        })
-            .then((res) => {
-                console.log(res);
-                const data = res.data.data.children;
-                setResults(data);
+        if (!search) {
+            alert('enter search text');
+        } else {
+            axios({
+                method: 'GET',
+                url: `http://www.reddit.com/search.json?q=${search
+                    .split(' ')
+                    .join('+')}&sort=${sort}&limit=${limit}`
             })
-            .catch((err) => console.log(err.response));
+                .then((res) => {
+                    console.log(res);
+                    const data = res.data.data.children;
+                    setResults(data);
+                })
+                .catch((err) => console.log(err.response));
+        }
     };
 
     return (
