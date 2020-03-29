@@ -8,8 +8,6 @@ export const SearchForm = () => {
     const [limit, setLimit] = useState('');
     const { setResults } = useContext(GlobalContext);
 
-    // need to change sort and limit input to select fields...
-
     const handleForm = async (e) => {
         e.preventDefault();
 
@@ -40,19 +38,21 @@ export const SearchForm = () => {
                 onChange={(e) => setSearch(e.target.value)}
             />
             <br />
-            <input
-                placeholder='sort by'
-                type='text'
-                value={sort}
-                onChange={(e) => setSort(e.target.value)}
-            />
+            <label htmlFor='sort-by'>Sort by: </label>
+            <select onChange={(e) => setSort(e.target.value)}>
+                <option value='relevance'>Relevance</option>
+                <option value='top'>Top</option>
+                <option value='new'>New</option>
+                <option value='comments'>Comments</option>
+            </select>
             <br />
-            <input
-                placeholder='limit amount'
-                type='text'
-                value={limit}
-                onChange={(e) => setLimit(e.target.value)}
-            />
+            <label htmlFor='set-limit'>Limit: </label>
+            <select onChange={(e) => setLimit(e.target.value)}>
+                <option value={5}>5</option>
+                <option value={10}>10</option>
+                <option value={25}>25</option>
+                <option value={50}>50</option>
+            </select>
             <br />
             <input type='submit' value='search' />
         </form>
