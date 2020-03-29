@@ -24,7 +24,6 @@ export const SearchForm = () => {
                     .join('+')}&sort=${sort}&limit=${limit}`
             })
                 .then((res) => {
-                    console.log(res);
                     const data = res.data.data.children;
                     setResults(data);
                 })
