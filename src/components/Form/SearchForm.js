@@ -6,26 +6,23 @@ export const SearchForm = () => {
     const [search, setSearch] = useState('');
     const [sort, setSort] = useState('relevance');
     const [limit, setLimit] = useState(5);
-    const { setResults } = useContext(GlobalContext);
+    const { setPosts } = useContext(GlobalContext);
 
-    const handleForm = async (e) => {
+    const handleForm = (e) => {
         e.preventDefault();
-
-        console.log(`Search: ${search}`);
-        console.log(`Sort: ${sort}`);
-        console.log(`Limit: ${limit}`);
         if (!search) {
             alert('enter search text');
         } else {
+            // get all posts
             axios({
                 method: 'GET',
                 url: `http://www.reddit.com/search.json?q=${search
                     .split(' ')
-                    .join('+')}&sort=${sort}&limit=${limit}`
+                    .join('+')}&sort=${sort}&limit=${limit}&self:yes`
             })
                 .then((res) => {
                     const data = res.data.data.children;
-                    setResults(data);
+                    setPosts(data);
                 })
                 .catch((err) => console.log(err.response));
         }
