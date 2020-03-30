@@ -6,10 +6,10 @@ export const PostsContainer = () => {
     const { posts } = useContext(GlobalContext);
 
     return posts.length ? (
-        <>
+        <div>
             {posts.map((post) => (
                 <Post key={post.data.id} post={post.data} />
             ))}
-        </>
+        </div>
     ) : null;
 };
