@@ -6,7 +6,4 @@ A 'JavaScript client' for Reddit. Currently under development to release later i
 
 ## tech
 
-React w/ Context & Hooks
-
--   Styled Components
--   Axios
+React with Context, Hooks & Styled Components
