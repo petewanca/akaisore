@@ -1,8 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Comment } from './Comment';
 
-export const Post = ({ data }) => {
+export const Post = ({ post }) => {
     const [showPost, setShowPost] = useState(false);
-    let postDetail = data.selftext ? data.selftext : 'no text to display... sry :/';
+    const [showComments, setShowComments] = useState(false);
+    const [comments, setComments] = useState('');
+    let postDetail = post.selftext ? post.selftext : post.url;
+
+    useEffect(() => {
+        const fetchData = async () => {
+            let response = await fetch(`http://www.reddit.com${post.permalink}.json`);
+            let data = await response.json();
+            return data[1].data.children;
+        };
+
+        try {
+            fetchData().then((data) => {
+                setComments(data);
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    }, [post]);
+
+    const toggleComments = () => {
+        setShowComments(!showComments);
+    };
 
     const togglePost = () => {
         setShowPost(!showPost);
@@ -19,19 +42,22 @@ export const Post = ({ data }) => {
 
     return (
         <div style={box}>
-            <h5>{data.title}</h5>
-            <p>Created: {data.created}</p>
-            <p>Author: {data.author}</p>
+            <h5>{post.title}</h5>
+            <p>Created: {post.created}</p>
+            <p>Author: {post.author}</p>
             <button onClick={togglePost}>show post</button>
             {showPost ? <p>{postDetail}</p> : null}
-            <p>Subreddit: {data.subreddit_name_prefixed}</p>
-            <p>Subreddit subs: {data.subreddit_subscribers}</p>
-            <p>Score: {data.score}</p>
-            <p>Up votes: {data.ups}</p>
-            <p>Down votes: {data.downs}</p>
-            <p>Gilded: {data.gilded}</p>
-            <p>Comments: {data.num_comments}</p>
-            <button>Go to Comments</button>
+            <p>Subreddit: {post.subreddit_name_prefixed}</p>
+            <p>Subreddit subs: {post.subreddit_subscribers}</p>
+            <p>Score: {post.score}</p>
+            <p>Up votes: {post.ups}</p>
+            <p>Down votes: {post.downs}</p>
+            <p>Gilded: {post.gilded}</p>
+            <p>Comments: {post.num_comments}</p>
+            {post.num_comments ? <button onClick={toggleComments}>Go to Comments</button> : null}
+            {showComments
+                ? comments.map((comment) => <Comment key={comment.data.id} comment={comment} />)
+                : null}
         </div>
     );
 };

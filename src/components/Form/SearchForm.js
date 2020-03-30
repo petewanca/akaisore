@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react';
 import { GlobalContext } from '../../contexts/GlobalContext';
-import axios from 'axios';
 
 export const SearchForm = () => {
     const [search, setSearch] = useState('');
@@ -8,23 +7,28 @@ export const SearchForm = () => {
     const [limit, setLimit] = useState(5);
     const { setPosts } = useContext(GlobalContext);
 
+    const fetchData = async () => {
+        let response = await fetch(
+            `http://www.reddit.com/search.json?q=${search
+                .split(' ')
+                .join('+')}&sort=${sort}&limit=${limit}&self:yes`
+        );
+        let data = await response.json();
+        return data.data.children;
+    };
+
     const handleForm = (e) => {
         e.preventDefault();
         if (!search) {
             alert('enter search text');
         } else {
-            // get all posts
-            axios({
-                method: 'GET',
-                url: `http://www.reddit.com/search.json?q=${search
-                    .split(' ')
-                    .join('+')}&sort=${sort}&limit=${limit}&self:yes`
-            })
-                .then((res) => {
-                    const data = res.data.data.children;
+            try {
+                fetchData().then((data) => {
                     setPosts(data);
-                })
-                .catch((err) => console.log(err.response));
+                });
+            } catch (error) {
+                console.log(error);
+            }
         }
     };
 
