@@ -76,8 +76,15 @@ export const Header = () => {
                 ;
             </p>
             <br />
-            <li>add express middleware</li>
-            <li>add mongoose connection string</li>
+            <p>
+                app.use(express.urlencoded({'{'} extended: true {'}'}));
+            </p>
+            <p>app.use(express.json());</p>
+            <p>
+                mongoose.connect(process.env.DB_LINK, {'{'}
+                useNewUrlParser: true, useUnifiedTopology: true
+                {'}'})
+            </p>
             <SearchForm />
             <br />
             <div>
