@@ -33,17 +33,19 @@ button:focus {
     outline: none;
 }
 
-input[type='text'] {
+input {
     background-color: #203342;
     border: 0;
     color: #65cf9f;
+    margin: 0;
+    padding: 0;
 }
 
-input[type='text']:focus {
+input:focus {
     outline: none;
 }
 
-input[type='text']::placeholder {
+input::placeholder {
     color: #65cf9f;
 }
 
@@ -54,5 +56,9 @@ select {
     text-overflow: '';
     background-color: #203342;
     border: 0;
+    color: #65cf9f;
+}
+
+.select-num {
     color: #bf66f2;
 }

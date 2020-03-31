@@ -1,6 +1,14 @@
 import React from 'react';
 import { SearchForm } from '../Form/SearchForm';
-import { Value, Variable, VariableName, Param, FunctionName, Operator } from '../../style';
+import {
+    Value,
+    Variable,
+    VariableName,
+    Param,
+    FunctionName,
+    Operator,
+    NumValue
+} from '../../style';
 
 export const Header = () => {
     return (
@@ -41,8 +49,20 @@ export const Header = () => {
                 <FunctionName>
                     process<Operator>.</Operator>env<Operator>.</Operator>PORT{' '}
                     <Operator>|| </Operator>
-                    <Value>3000</Value>
+                    <NumValue>3000</NumValue>
                 </FunctionName>
+                ;
+            </p>
+            <p>
+                <Variable>const </Variable>
+                <VariableName>
+                    {'{'} ExecuteSearch {'}'}{' '}
+                </VariableName>
+                <Operator>= </Operator>
+                <FunctionName>require</FunctionName>
+                <Operator>
+                    (<Value>'./routes/api/search/'</Value>)
+                </Operator>
                 ;
             </p>
             <p>
@@ -56,6 +76,8 @@ export const Header = () => {
                 ;
             </p>
             <br />
+            <li>add express middleware</li>
+            <li>add mongoose connection string</li>
             <SearchForm />
             <br />
             <div>

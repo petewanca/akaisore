@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
-import { Variable, VariableName, FunctionName, Operator, NumValue } from '../../style';
+import { Variable, VariableName, FunctionName, Operator, Param } from '../../style';
+import '../../index.css';
 import { GlobalContext } from '../../contexts/GlobalContext';
 
 export const SearchForm = () => {
@@ -35,17 +36,17 @@ export const SearchForm = () => {
 
     return (
         <form onSubmit={handleForm}>
-            <Variable>cosnt </Variable>
+            <Variable>const </Variable>
             <VariableName>searchTerm </VariableName>
             <Operator>= </Operator>
             <input
-                placeholder="'enter search term'"
+                placeholder="'enter a search term'"
                 type='text'
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
             />
             <br />
-            <Variable>cosnt </Variable>
+            <Variable>const </Variable>
             <VariableName>sortBy </VariableName>
             <Operator>= </Operator>
             <select onChange={(e) => setSort(e.target.value)}>
@@ -54,18 +55,27 @@ export const SearchForm = () => {
                 <option value='new'>'new'</option>
                 <option value='comments'>'comments'</option>
             </select>
+            ;
             <br />
-            <Variable>cosnt </Variable>
+            <Variable>const </Variable>
             <VariableName>limitTo </VariableName>
             <Operator>= </Operator>
-            <select onChange={(e) => setLimit(e.target.value)}>
+            <select className='select-num' onChange={(e) => setLimit(e.target.value)}>
                 <option value={5}>5</option>
                 <option value={10}>10</option>
                 <option value={25}>25</option>
                 <option value={50}>50</option>
             </select>
+            ;
             <br />
-            <input type='submit' value='search' />
+            <button type='submit'>
+                <FunctionName>
+                    ExecuteSearch
+                    <Operator>(</Operator>
+                    <Param> searchTerm, sortBy, limitTo </Param>
+                    <Operator>)</Operator>;
+                </FunctionName>
+            </button>
         </form>
     );
 };

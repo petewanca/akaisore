@@ -12,6 +12,7 @@ const App = () => {
                 <PostsContainer />
             </FirstIndent>
             <Footer />
+            <li>add server connection string</li>
         </div>
     );
 };
