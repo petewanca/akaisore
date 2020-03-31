@@ -25,15 +25,17 @@ export const Value = styled.span`
     color: #65cf9f;
 `;
 
+export const NumValue = styled.span`
+    color: #bf66f2;
+`;
+
 export const CommentedOut = styled.span`
     color: #8f8f8f;
 `;
 
 export const PostBox = styled.div`
-    border: 2px solid #fff;
     padding: 20px;
     margin: 15px 0;
-    border-radius: 8px;
 `;
 
 export const FirstIndent = styled.div`

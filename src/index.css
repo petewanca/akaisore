@@ -32,3 +32,27 @@ button {
 button:focus {
     outline: none;
 }
+
+input[type='text'] {
+    background-color: #203342;
+    border: 0;
+    color: #65cf9f;
+}
+
+input[type='text']:focus {
+    outline: none;
+}
+
+input[type='text']::placeholder {
+    color: #65cf9f;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+    background-color: #203342;
+    border: 0;
+    color: #bf66f2;
+}

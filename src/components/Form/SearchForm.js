@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { Variable, VariableName, FunctionName, Operator, NumValue } from '../../style';
 import { GlobalContext } from '../../contexts/GlobalContext';
 
 export const SearchForm = () => {
@@ -34,22 +35,29 @@ export const SearchForm = () => {
 
     return (
         <form onSubmit={handleForm}>
+            <Variable>cosnt </Variable>
+            <VariableName>searchTerm </VariableName>
+            <Operator>= </Operator>
             <input
-                placeholder='search term'
+                placeholder="'enter search term'"
                 type='text'
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
             />
             <br />
-            <label htmlFor='sort-by'>Sort by: </label>
+            <Variable>cosnt </Variable>
+            <VariableName>sortBy </VariableName>
+            <Operator>= </Operator>
             <select onChange={(e) => setSort(e.target.value)}>
-                <option value='relevance'>Relevance</option>
-                <option value='top'>Top</option>
-                <option value='new'>New</option>
-                <option value='comments'>Comments</option>
+                <option value='relevance'>'relevance'</option>
+                <option value='top'>'top'</option>
+                <option value='new'>'new'</option>
+                <option value='comments'>'comments'</option>
             </select>
             <br />
-            <label htmlFor='set-limit'>Limit: </label>
+            <Variable>cosnt </Variable>
+            <VariableName>limitTo </VariableName>
+            <Operator>= </Operator>
             <select onChange={(e) => setLimit(e.target.value)}>
                 <option value={5}>5</option>
                 <option value={10}>10</option>
