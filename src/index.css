@@ -22,3 +22,13 @@ span {
     font-size: 1rem;
     font-family: 'Consolas', monospace;
 }
+
+button {
+    background-color: #203342;
+    border: 0;
+    cursor: pointer;
+}
+
+button:focus {
+    outline: none;
+}

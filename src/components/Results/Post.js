@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Comment } from './Comment';
-import styled from 'styled-components';
+import {
+    Param,
+    Variable,
+    VariableName,
+    FunctionName,
+    Operator,
+    Value,
+    CommentedOut,
+    PostBox
+} from '../../style';
 
 export const Post = ({ post }) => {
     const [showPost, setShowPost] = useState(false);
@@ -36,40 +45,45 @@ export const Post = ({ post }) => {
         <PostBox>
             {/* POST TITLE */}
             <p>
-                <Variable>const </Variable>
+                <Variable>let </Variable>
                 <VariableName>title </VariableName>
                 <Operator>= </Operator>
                 <Value>'{post.title}'</Value>
             </p>
             {/* POST CREATE DATE */}
             <p>
-                <Variable>const </Variable>
+                <Variable>let </Variable>
                 <VariableName>created </VariableName>
                 <Operator>= </Operator>
                 <Value>'{post.created}'</Value>
             </p>
             {/* POST AUTHOR */}
             <p>
-                <Variable>const </Variable>
+                <Variable>let </Variable>
                 <VariableName>author </VariableName>
                 <Operator>= </Operator>
                 <Value>{post.author}</Value>
             </p>
-
             {/* SHOW POST BODY BUTTON */}
             <p>
-                <Variable>const </Variable>
+                <Variable>let </Variable>
                 <FunctionName>
-                    showPost<Operator> = () =></Operator>
+                    showPost
+                    <Operator>
+                        = (
+                        <button onClick={togglePost}>
+                            <Param> showPost </Param>
+                        </button>
+                        ) =>
+                    </Operator>
                 </FunctionName>
-                <Operator>{' {'} </Operator>
-                <button onClick={togglePost}>show post</button>
-                <Operator>{' }'} </Operator>
+                <Operator>{' { '}</Operator>
+                <Operator>{' } '}</Operator>
             </p>
             {/* POST BODY */}
             {showPost ? (
                 <p>
-                    <Variable>const </Variable>
+                    <Variable>let </Variable>
                     <VariableName>postDetail </VariableName>
                     <Operator>= </Operator>
                     <Value>{postDetail}</Value>
@@ -77,58 +91,63 @@ export const Post = ({ post }) => {
             ) : null}
             {/* SUBREDDIT */}
             <p>
-                <Variable>const </Variable>
+                <Variable>let </Variable>
                 <VariableName>subReddit </VariableName>
                 <Operator>= </Operator>
                 <Value>{post.subreddit_name_prefixed}</Value>
             </p>
             {/* SUBREDDIT SUB COUNT */}
             <p>
-                <Variable>const </Variable>
+                <Variable>let </Variable>
                 <VariableName>subRedditSubs </VariableName>
                 <Operator>= </Operator>
                 <Value>{post.subreddit_subscribers}</Value>
             </p>
             {/* SCORE */}
             <p>
-                <Variable>const </Variable>
+                <Variable>let </Variable>
                 <VariableName>score </VariableName>
                 <Operator>= </Operator>
                 <Value>{post.score}</Value>
+                {/* eslint-disable-next-line */}
+                <CommentedOut> // Gilded: {post.gilded}</CommentedOut>
             </p>
             {/* UP VOTES */}
             <p>
-                <Variable>const </Variable>
+                <Variable>let </Variable>
                 <VariableName>upVotes </VariableName>
                 <Operator>= </Operator>
                 <Value>{post.ups}</Value>
             </p>
             {/* DOWN VOTES */}
             <p>
-                <Variable>const </Variable>
+                <Variable>let </Variable>
                 <VariableName>downVotes </VariableName>
                 <Operator>= </Operator>
                 <Value>{post.downs}</Value>
             </p>
-            {/* GILDED */}
-            <p>
-                <CommentedOut>// Gilded: {post.gilded}</CommentedOut>
-            </p>
             {/* COMMENT COUNT */}
             <p>
-                <Variable>const </Variable>
+                <Variable>let </Variable>
                 <VariableName>comments </VariableName>
                 <Operator>= </Operator>
                 <Value>{post.num_comments}</Value>
             </p>
             {post.num_comments ? (
                 <p>
-                    <Variable>const </Variable>
+                    <Variable>let </Variable>
                     <FunctionName>
-                        showComments<Operator> = () =></Operator>
+                        showComments
+                        <Operator>
+                            = (
+                            <button onClick={toggleComments}>
+                                <Param>showComments</Param>
+                            </button>
+                            ) =>
+                        </Operator>
                     </FunctionName>
                     <Operator>{' {'} </Operator>
-                    <button onClick={toggleComments}>comments</button>
+
                     <Operator>{' }'} </Operator>
                 </p>
             ) : null}
@@ -139,34 +158,3 @@ export const Post = ({ post }) => {
         </PostBox>
     );
 };
-
-const Variable = styled.span`
-    color: #e0453a;
-`;
-
-const VariableName = styled.span`
-    color: #e0bf3a;
-`;
-
-const FunctionName = styled.span`
-    color: #55c5c9;
-`;
-
-const Operator = styled.span`
-    color: #cf74cf;
-`;
-
-const Value = styled.span`
-    color: #65cf9f;
-`;
-
-const CommentedOut = styled.span`
-    color: #8f8f8f;
-`;
-
-const PostBox = styled.div`
-    border: 2px solid #fff;
-    padding: 20px;
-    margin: 15px 0;
-    border-radius: 8px;
-`;
