@@ -25,9 +25,35 @@
 </ul>
 
 <h2>👩🏽‍💻 Further Development</h2>
-<p>With v1 completed as of ________, the intention is to continue adding features to Akaisore over time. If you have suggestions or would like to contribute, feel free to fork and create a PR or shoot me an email at the address listed above. ✌️ Arigatou gozaimasu!! ✌️ Thank you for visiting my page, here's some screenshots of the application.</p>
+<p>With v1 completed as of ________, the intention is to continue adding features to Akaisore over time. If you have suggestions or would like to contribute, feel free to fork and create a PR or shoot me an email at the address listed above. The goal was to keep the inital release of Akaisore as lightweight as possible. With that, v1 is client-side only but I plan to continue expanding on this every few weeks/months.</p>
+<p>Here's a short list of items I'd like to add on next:</p>
+<ul>
+    <li>Listing replies to comments as opposed to only top level comments.</li>
+    <li>Pagination for additional post and comment results.</li>
+    <li>Improved styling for nested parentheses, curly braces, methods and objects/values.</li>
+    <li>User authentication via OAuth to enable user sign-in for personalized Reddit experience.</li>
+</ul>
+<p>✌️ Arigatou gozaimasu!! ✌️ Thank you for visiting my page! 😁</p>
 
 <h2>📸 Screenshots</h2>
-<p></p>
+<p>Take a look at some sample screenshots from the application, or better yet, <a href='https://petewanca.github.io/akaisore' target='_blank'>jump in and take a look for yourself</a>.
+
+<div align='center'>
+
+## Home page
 
 ![Home page sample](/assets/home.jpg)
+
+## Search form
+
+![Search form sample](/assets/searchForm.jpg)
+
+## Single post result
+
+![Post sample](/assets/post.jpg)
+
+## Post result with body and comments revealed
+
+![Post detail sample](/assets/postdetail.jpg)
+
+</div>
