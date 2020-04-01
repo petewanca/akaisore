@@ -55,7 +55,6 @@ export const SearchForm = () => {
                 <option value='new'>'new'</option>
                 <option value='comments'>'comments'</option>
             </select>
-            ;
             <br />
             <Variable>let </Variable>
             <VariableName>limitTo </VariableName>
@@ -66,7 +65,6 @@ export const SearchForm = () => {
                 <option value={25}>25</option>
                 <option value={50}>50</option>
             </select>
-            ;
             <br />
             <br />
             <button type='submit'>
@@ -74,7 +72,7 @@ export const SearchForm = () => {
                     ExecuteSearch
                     <Operator>(</Operator>
                     <Param> searchTerm, sortBy, limitTo </Param>
-                    <Operator>)</Operator>;
+                    <Operator>)</Operator>
                 </FunctionName>
             </button>
         </form>

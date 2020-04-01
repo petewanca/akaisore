@@ -9,14 +9,22 @@ import {
     Value,
     CommentedOut,
     Indent,
-    SecondIndent
+    SecondIndent,
+    NumValue
 } from '../../style';
+import moment from 'moment';
 
 export const Post = ({ post }) => {
     const [showPost, setShowPost] = useState(false);
     const [showComments, setShowComments] = useState(false);
     const [comments, setComments] = useState('');
-    let postDetail = post.selftext ? post.selftext : post.url;
+    let postDetail = post.selftext ? (
+        post.selftext
+    ) : (
+        <a href={post.url} target='_blank' rel='noopener noreferrer'>
+            {post.url}
+        </a>
+    );
 
     useEffect(() => {
         const fetchData = async () => {
@@ -43,128 +51,98 @@ export const Post = ({ post }) => {
     };
 
     const str = post.title.split(' ').join('');
-    // console.log(str);
     const postHeader = str.length > 20 ? str.slice(0, 20) : str;
-    // console.log(str);
-    // const postHeader = str.length > 20 ? str.splice(20, str.length - 20) : str;
-    // console.log(postHeader);
+
     return (
         <Indent>
             <br />
-            {/* POST TITLE */}
             <p>
                 <Variable>const </Variable>
                 <VariableName>{postHeader} </VariableName>
                 <Operator>
-                    = ( <Param>...params</Param> ) => {'{'}
+                    = ( <Param>author, {post.author}</Param> ) => {'{'}
                 </Operator>
             </p>
             <SecondIndent>
                 <p>
-                    <Variable>let </Variable>
-                    <VariableName>title </VariableName>
-                    <Operator>= </Operator>
-                    <Value>'{post.title}'</Value>
+                    {/* eslint-disable-next-line */}
+                    <CommentedOut> // {post.title}</CommentedOut>
                 </p>
-                {/* POST CREATE DATE */}
                 <p>
                     <Variable>let </Variable>
                     <VariableName>created </VariableName>
                     <Operator>= </Operator>
-                    <Value>'{post.created}'</Value>
+                    <Value>
+                        '{moment(post.created_utc * 1000).format('dddd, MMMM Do YYYY, h:mm:ss a')}'
+                    </Value>
+                    ;
                 </p>
-                {/* POST AUTHOR */}
+                <br />
                 <p>
-                    <Variable>let </Variable>
-                    <VariableName>author </VariableName>
-                    <Operator>= </Operator>
-                    <Value>{post.author}</Value>
+                    <button onClick={togglePost}>
+                        <FunctionName>showBody</FunctionName>
+                        <Operator>()</Operator>
+                    </button>
+                    ;
                 </p>
-                {/* SHOW POST BODY BUTTON */}
-                <p>
-                    <Variable>let </Variable>
-                    <FunctionName>
-                        showPost
-                        <Operator>
-                            = (
-                            <button onClick={togglePost}>
-                                <Param> showPost </Param>
-                            </button>
-                            ) =>
-                        </Operator>
-                    </FunctionName>
-                    <Operator>{' { '}</Operator>
-                    <Operator>{' } '}</Operator>
-                </p>
-                {/* POST BODY */}
+                <br />
                 {showPost ? (
                     <p>
-                        <Variable>let </Variable>
-                        <VariableName>postDetail </VariableName>
-                        <Operator>= </Operator>
-                        <Value>{postDetail}</Value>
+                        {/* eslint-disable-next-line */}
+                        <CommentedOut> /* {postDetail} */</CommentedOut>
                     </p>
                 ) : null}
-                {/* SUBREDDIT */}
                 <p>
                     <Variable>let </Variable>
                     <VariableName>subReddit </VariableName>
                     <Operator>= </Operator>
-                    <Value>{post.subreddit_name_prefixed}</Value>
+                    <Value>'{post.subreddit_name_prefixed}'</Value>;
                 </p>
-                {/* SUBREDDIT SUB COUNT */}
                 <p>
                     <Variable>let </Variable>
                     <VariableName>subRedditSubs </VariableName>
                     <Operator>= </Operator>
-                    <Value>{post.subreddit_subscribers}</Value>
+                    <NumValue>{post.subreddit_subscribers}</NumValue>;
                 </p>
-                {/* SCORE */}
+                <br />
+                <p>
+                    {/* eslint-disable-next-line */}
+                    <CommentedOut> // Gilded: {post.gilded}</CommentedOut>
+                </p>
                 <p>
                     <Variable>let </Variable>
                     <VariableName>score </VariableName>
                     <Operator>= </Operator>
-                    <Value>{post.score}</Value>
-                    {/* eslint-disable-next-line */}
-                    <CommentedOut> // Gilded: {post.gilded}</CommentedOut>
+                    <NumValue>{post.score}</NumValue>;
                 </p>
-                {/* UP VOTES */}
                 <p>
                     <Variable>let </Variable>
                     <VariableName>upVotes </VariableName>
                     <Operator>= </Operator>
-                    <Value>{post.ups}</Value>
+                    <NumValue>{post.ups}</NumValue>;
                 </p>
-                {/* DOWN VOTES */}
                 <p>
                     <Variable>let </Variable>
                     <VariableName>downVotes </VariableName>
                     <Operator>= </Operator>
-                    <Value>{post.downs}</Value>
+                    <NumValue>{post.downs}</NumValue>;
                 </p>
-                {/* COMMENT COUNT */}
+                <br />
                 <p>
                     <Variable>let </Variable>
                     <VariableName>comments </VariableName>
                     <Operator>= </Operator>
-                    <Value>{post.num_comments}</Value>
+                    <NumValue>{post.num_comments}</NumValue>;
                 </p>
                 {post.num_comments ? (
                     <p>
-                        <Variable>let </Variable>
-                        <FunctionName>
-                            showComments
-                            <Operator>
-                                = (
-                                <button onClick={toggleComments}>
-                                    <Param>showComments</Param>
-                                </button>
-                                ) =>
-                            </Operator>
-                        </FunctionName>
-                        <Operator>{' {'} </Operator>
-
-                        <Operator>{' }'} </Operator>
+                        <button onClick={toggleComments}>
+                            <FunctionName>
+                                showComments
+                                <Operator>()</Operator>
+                            </FunctionName>
+                        </button>
+                        ;
                     </p>
                 ) : null}
                 {/* POST COMMENTS */}
@@ -173,7 +151,7 @@ export const Post = ({ post }) => {
                     : null}
             </SecondIndent>
             <p>
-                <Operator>{'}'}</Operator>
+                <Operator>{'}'}</Operator>;
             </p>
         </Indent>
     );
