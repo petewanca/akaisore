@@ -33,11 +33,10 @@ export const CommentedOut = styled.span`
     color: #8f8f8f;
 `;
 
-export const PostBox = styled.div`
-    padding: 20px;
-    margin: 15px 0;
+export const Indent = styled.div`
+    margin-left: 1%;
 `;
 
-export const FirstIndent = styled.div`
-    margin-left: 1%;
+export const SecondIndent = styled.div`
+    margin-left: 3%;
 `;
