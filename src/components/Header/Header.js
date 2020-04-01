@@ -87,7 +87,7 @@ export const Header = () => {
                 <Operator>(</Operator>
                 {'{'} <VariableName>extended</VariableName>
                 <Operator>:</Operator> <Value>true</Value> {'}'}
-                <Operator>)))</Operator>;
+                <Operator>))</Operator>;
             </p>
             <p>
                 <FunctionName>app</FunctionName>

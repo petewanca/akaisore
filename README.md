@@ -13,3 +13,10 @@ React with Context, Hooks & Styled Components
 ## home page sample
 
 ![Home page sample](/assets/home.jpg)
+
+### todo
+
+1. finish post formatting
+2. self text formatting of post
+3. comment formatting
+4. Redo screenshots for readme
