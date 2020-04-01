@@ -36,7 +36,7 @@ export const SearchForm = () => {
 
     return (
         <form onSubmit={handleForm}>
-            <Variable>const </Variable>
+            <Variable>let </Variable>
             <VariableName>searchTerm </VariableName>
             <Operator>= </Operator>
             <input
@@ -46,7 +46,7 @@ export const SearchForm = () => {
                 onChange={(e) => setSearch(e.target.value)}
             />
             <br />
-            <Variable>const </Variable>
+            <Variable>let </Variable>
             <VariableName>sortBy </VariableName>
             <Operator>= </Operator>
             <select onChange={(e) => setSort(e.target.value)}>
@@ -57,7 +57,7 @@ export const SearchForm = () => {
             </select>
             ;
             <br />
-            <Variable>const </Variable>
+            <Variable>let </Variable>
             <VariableName>limitTo </VariableName>
             <Operator>= </Operator>
             <select className='select-num' onChange={(e) => setLimit(e.target.value)}>
@@ -67,6 +67,7 @@ export const SearchForm = () => {
                 <option value={50}>50</option>
             </select>
             ;
+            <br />
             <br />
             <button type='submit'>
                 <FunctionName>

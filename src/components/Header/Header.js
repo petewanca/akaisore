@@ -77,14 +77,47 @@ export const Header = () => {
             </p>
             <br />
             <p>
-                app.use(express.urlencoded({'{'} extended: true {'}'}));
+                <FunctionName>app</FunctionName>
+                <Operator>.</Operator>
+                <FunctionName>use</FunctionName>
+                <Operator>(</Operator>
+                <VariableName>express</VariableName>
+                <Operator>.</Operator>
+                <Variable>urlencoded</Variable>
+                <Operator>(</Operator>
+                {'{'} <VariableName>extended</VariableName>
+                <Operator>:</Operator> <Value>true</Value> {'}'}
+                <Operator>)))</Operator>;
             </p>
-            <p>app.use(express.json());</p>
             <p>
-                mongoose.connect(process.env.DB_LINK, {'{'}
-                useNewUrlParser: true, useUnifiedTopology: true
-                {'}'})
+                <FunctionName>app</FunctionName>
+                <Operator>.</Operator>
+                <FunctionName>use</FunctionName>
+                <Operator>(</Operator>
+                <VariableName>express</VariableName>
+                <Operator>.</Operator>
+                <FunctionName>json</FunctionName>
+                <Operator>())</Operator>;
             </p>
+            <br />
+            <p>
+                <FunctionName>mongoose</FunctionName>
+                <Operator>.</Operator>
+                <VariableName>connect</VariableName>
+                <Operator>(</Operator>
+                <FunctionName>process</FunctionName>
+                <Operator>.</Operator>
+                <FunctionName>env</FunctionName>
+                <Operator>.</Operator>
+                <FunctionName>DB_LINK</FunctionName>
+                <Operator>, {'{'}</Operator>
+                <VariableName>useNewUrlParser</VariableName>
+                <Operator>:</Operator> <Value>true</Value>
+                <Operator>,</Operator> <VariableName>useUnifiedTopology</VariableName>
+                <Operator>:</Operator> <Value>true</Value>
+                <Operator>{'}'})</Operator>;
+            </p>
+            <br />
             <SearchForm />
             <br />
             <div>

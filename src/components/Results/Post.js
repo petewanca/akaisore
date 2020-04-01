@@ -45,6 +45,10 @@ export const Post = ({ post }) => {
         <PostBox>
             {/* POST TITLE */}
             <p>
+                <Variable>const </Variable>
+                <VariableName>{post.title}</VariableName>
+            </p>
+            <p>
                 <Variable>let </Variable>
                 <VariableName>title </VariableName>
                 <Operator>= </Operator>

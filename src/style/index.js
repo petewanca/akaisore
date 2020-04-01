@@ -39,5 +39,5 @@ export const PostBox = styled.div`
 `;
 
 export const FirstIndent = styled.div`
-    margin-left: 4%;
+    margin-left: 1%;
 `;
