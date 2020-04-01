@@ -28,7 +28,7 @@ export const Post = ({ post }) => {
 
     useEffect(() => {
         const fetchData = async () => {
-            let response = await fetch(`http://www.reddit.com${post.permalink}.json`);
+            let response = await fetch(`https://www.reddit.com${post.permalink}.json`);
             let data = await response.json();
             return data[1].data.children;
         };

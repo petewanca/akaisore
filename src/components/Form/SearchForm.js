@@ -11,7 +11,7 @@ export const SearchForm = () => {
 
     const fetchData = async () => {
         let response = await fetch(
-            `http://www.reddit.com/search.json?q=${search
+            `https://www.reddit.com/search.json?q=${search
                 .split(' ')
                 .join('+')}&sort=${sort}&limit=${limit}&self:yes`
         );
