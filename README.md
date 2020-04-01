@@ -11,7 +11,7 @@
     <li>React</li>
     <li>Context</li>
     <li>Hooks</li>
-[![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
+    <li>Styled Components</li>
     <li>Moment</li>
 </ul>
 
@@ -20,7 +20,7 @@
 <p>Pete Wanca</p>
 <ul>
     <li><a href='https://petewanca.github.io/' target='_blank'>Home page</a></li>
-    <li><a https://www.linkedin.com/in/petewanca' target='_blank'>LinkedIn</a></li>
+    <li><a href='https://www.linkedin.com/in/petewanca' target='_blank'>LinkedIn</a></li>
     <li>petewanca@gmail.com</li>
 </ul>
 
